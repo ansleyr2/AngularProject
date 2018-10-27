@@ -1,0 +1,47 @@
+<div align="center">
+	<input id="search" name="search" type="text" ng-model="wordToSearch" placeholder="Enter word to search"/>
+	<button ng-click="searchWord()">{{searchBtnTxt}}</button>
+	<div ng-if="detailsFetched" align="center">
+		<ul>
+			<li ng-repeat="word in wordsList">
+				<ul>
+					<li>
+						<span class="word" ng-click="speak()" title="click to pronounce">{{word.word}}</span>
+						<!-- <span id="pronounce" ng-click="speak()" class="pronounce">ðŸ”Š</span> -->
+						<span><button ng-click="enableEditFeature()">Edit</button></span>
+					</li>
+					<li ng-if="showMeaning">
+						<span>{{word.meaning}}</span>
+					</li>
+					<li ng-if="showSentence">
+						<span>{{word.sentence}}</span>
+					</li>
+				</ul>
+				<br/>
+			</li>	
+		</ul>
+	</div>
+	<div ng-if="showEditDiv" align="center">
+		<form class="contact_form" name="inputForm" novalidate>
+			<ul>
+				<li>
+					<input type="text" name="word" id="word" ng-model="word.word" disabled />
+				</li>
+				<li>
+					<input type="text" name="meaning" id="meaning" ng-model="word.meaning" placeholder="Enter meaning" required />
+					<span style="color:red" ng-show="(inputForm.meaning.$dirty || submitted) && inputForm.meaning.$invalid">
+						<span ng-show="inputForm.meaning.$error.required">Meaning is required.</span>
+					</span>
+				</li>
+				<li>
+					<input type="text" name="sentence" id="sentence" ng-model="word.sentence" placeholder="Enter example/phrase" required />
+					<span style="color:red" ng-show="(inputForm.sentence.$dirty || submitted) && inputForm.sentence.$invalid">
+						<span ng-show="inputForm.sentence.$error.required">Sentence is required.</span>
+					</span>
+				</li>
+			</ul>
+			<button ng-click="saveWord(word)" ng-show="showSaveBtn">Save</button>
+			<div class="clear"></div>
+		</form>
+	</div>
+</div>

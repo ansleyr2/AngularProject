@@ -1,0 +1,30 @@
+<div>
+	<form class="contact_form" name="inputForm" ng-submit="validateInput(inputForm)" novalidate>
+			<h1>Save Word</h1>
+			<ul>
+				<li>
+					<input type="text" name="date" id="date" ng-model="date" disabled />
+				</li>
+				<li>
+					<input type="text" name="word" id="word" ng-model="word" placeholder="Enter word" required />
+					<span style="color:red" ng-show="(inputForm.word.$dirty || submitted) && inputForm.word.$invalid">
+						<span ng-show="inputForm.word.$error.required">word is required.</span>
+					</span>
+				</li>
+				<li>
+					<input type="text" name="meaning" id="meaning" ng-model="meaning" placeholder="Enter meaning" required />
+					<span style="color:red" ng-show="(inputForm.meaning.$dirty || submitted) && inputForm.meaning.$invalid">
+						<span ng-show="inputForm.meaning.$error.required">Meaning is required.</span>
+					</span>
+				</li>
+				<li>
+					<input type="text" name="sentence" id="sentence" ng-model="sentence" placeholder="Enter example/phrase" required />
+					<span style="color:red" ng-show="(inputForm.sentence.$dirty || submitted) && inputForm.sentence.$invalid">
+						<span ng-show="inputForm.sentence.$error.required">Sentence is required.</span>
+					</span>
+				</li>
+			</ul>
+			<input type="submit" name="Save" value="Save"/>
+			<div class="clear"></div>
+		</form>
+</div>

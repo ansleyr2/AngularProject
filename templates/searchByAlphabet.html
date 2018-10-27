@@ -1,0 +1,32 @@
+<div align="center">
+	<span align="center">
+		<ul class="alphabet_ul">
+			<li ng-repeat="alphabet in alphabetList" style="float:left;">
+				<a style="padding-right:10px" ng-click="getList(alphabet.char)" href="">{{alphabet.char}}</a>
+			</li>
+		</ul>
+	</span>
+	<br/>
+	<span style="font-weight:bold;">{{infoMsg}}</span><br/>
+	<div ng-if="detailsFetched" align="center">
+		<input type="checkbox" name="" ng-model="meaning_flg" ng-change="helpEnable()" id="meaning_cbx" /><label>Show Meanings | </label> 
+		<input type="checkbox" name="" ng-model="sentence_flg" ng-change="helpEnable()" id="sentence_cbx" /><label>Show Example Sentences</label><br/><br/>
+		<ul>
+			<li ng-repeat="word in wordsList">
+				<ul>
+					<li>
+						<span class="word" ng-click="speak()" title="click to pronounce">{{word.word}}</span>
+						<!-- <span id="pronounce" ng-click="speak()" class="pronounce">ðŸ”Š</span> -->
+					</li>
+					<li ng-if="showMeaning">
+						<span>{{word.meaning}}</span>
+					</li>
+					<li ng-if="showSentence">
+						<span>{{word.sentence}}</span>
+					</li>
+				</ul>
+				<br/>
+			</li>	
+		</ul>
+	</div>
+</div>

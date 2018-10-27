@@ -1,0 +1,34 @@
+<div class="wrap">
+		<!-- start-form -->
+		<form class="contact_form" name="LoginForm" ng-submit="validateLogin(LoginForm)" novalidate>
+			<h1>Login</h1>
+			<span style="color:red" ng-if="invalidCredentials">Invalid credentials</span>
+			<ul>
+				<li>
+					<input type="text" class="textbox1" name="username" id="username" ng-model="uname" placeholder="username/email" required />
+					 <!-- <p><img src="images/contact.png" alt=""></p> -->
+					<span style="color:red" ng-show="(LoginForm.username.$dirty || submitted) && LoginForm.username.$invalid">
+						<span ng-show="LoginForm.username.$error.required">Username is required.</span>
+					</span>
+				</li>
+				<li>
+					<input type="password" class="textbox2" name="password" id="password" ng-model="pwd" placeholder="password" required />
+					<!-- <p><img src="images/lock.png" alt=""></p> -->	
+					<span style="color:red" ng-show="(LoginForm.password.$dirty || submitted) && LoginForm.password.$invalid">
+						<span ng-show="LoginForm.password.$error.required">Password is required.</span>
+					</span>
+				</li>
+			 </ul>
+				<input type="submit" name="Sign In" value="Sign In"/>
+				<div class="clear"></div>	
+			<div class="forgot">
+				<a href="#/recoverPassword">forgot password?</a>
+			</div>
+			<div class="clear"></div>
+			<div class="forgot">
+				<a href="#/signup">Don' have an account? Sign Up!</a>
+			</div>
+			<div class="clear"></div>	
+		</form>
+		<!-- end-form -->
+</div>

@@ -1,0 +1,16 @@
+<div align="center">
+	<form align="center" >
+	<table align="center">
+		<tr>
+			<td>Email :</td>
+			<td><input type="text" id="email" ng-model="email"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><button ng-click="recoverPwd()" ng-disabled="disableBtn">Recover</button></td>
+		</tr>
+	</table>
+</form>
+<span align="center">
+	{{recoverySuccessMsg}}
+</span>
+</div>
