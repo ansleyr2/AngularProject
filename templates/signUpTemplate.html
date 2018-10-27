@@ -1,0 +1,34 @@
+<div class="wrap">
+	<form class="contact_form" name="signUpForm" ng-submit="signup(signUpForm)" novalidate>
+		<h1>Sign Up</h1>
+		<ul>
+			<li>
+				<input type="text" id="firstname" name="firstname" ng-model="fname" placeholder="First name" required />
+				<span style="color:red" ng-show="(signUpForm.firstname.$dirty || submitted) && signUpForm.firstname.$invalid">
+						<span ng-show="signUpForm.firstname.$error.required">First name is required.</span>
+				</span>
+			</li>
+			<li>
+				<input type="text" id="lastname" name="lastname" ng-model="lname" placeholder="Last name" required />
+				<span style="color:red" ng-show="(signUpForm.lastname.$dirty || submitted) && signUpForm.lastname.$invalid">
+						<span ng-show="signUpForm.lastname.$error.required">Last name is required.</span>
+				</span>
+			</li>
+			<li>
+				<input type="email" id="email" name="email" ng-model="email" placeholder="Email" required />
+				<span style="color:red" ng-show="(signUpForm.email.$dirty || submitted) && signUpForm.email.$invalid">
+						<span ng-show="signUpForm.email.$error.required">Email is required.</span>
+						<span ng-show="signUpForm.email.$error.email">Invalid email address.</span>
+				</span>
+			</li>
+			<li>
+				<input type="password" name="password" id="password" ng-model="newPwd" placeholder="Password" ng-pattern=" /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/" required />
+				<span style="color:red" ng-show="(signUpForm.password.$dirty || submitted) && signUpForm.password.$invalid">
+						<span ng-show="signUpForm.password.$error.required">Password is required.</span>
+						<span ng-show="signUpForm.password.$error.pattern">password does not match criteria</span>
+				</span>
+			</li>
+		</ul>
+		<input type="submit" name="Sign Up" value="Sign Up"/>
+	</form>
+</div>

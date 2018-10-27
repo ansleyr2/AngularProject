@@ -1,0 +1,46 @@
+<div align="center">
+	<span ng-if="detailsFetched" ng-hide="infoMsg" class="infoMsg"></span>
+	<span ng-if="detailsFetched" ng-hide="infoMsg" style="font-weight:bold;">{{PronounceinfoMsg}}</span><br/>
+	<label for="reviewType">Review Type :</label>
+	<select name="reviewType" ng-model="radioVal" ng-change="enableBtn()">
+		<option value="daily">Daily</option>
+		<option value="weekly">Weekly</option>
+		<option value="manual">Manual</option>
+	</select><br/><br/>
+	<div ng-if="radioVal">
+		<div ng-hide="showDateRange">
+		<input  type="text" id="dtpkr" ng-change="enableBtn()" ng-model="record_date" ng-click="showDtpr()" placeholder="select date to fetch words" required />
+		<button ng-click="getTotalResultsCount()" ng-disabled="disableBtn">Get list</button>
+		<button ng-if="showEmailBtn" ng-click="sendWordsToEmail()" ng-disabled="disableEmailBtn">Email list</button>
+		</div>
+		<div ng-if="showDateRange">
+			<label for="fromDate">From:</label><input id="fromDtPkr" type="text" ng-model="fromDate" name="fromDate" jqdatepicker /><!-- used angular directives here,jqdatepicker is an custom directive  of type 'A'-->
+			<label for="toDate">To:</label><input id="toDtPkr" type="text" ng-model="toDate" name="toDate" jqdatepicker />
+			<button ng-click="getTotalResultsCount()" ng-disabled="disableBtn">Get List</button>
+		</div>
+	</div>
+	<div ng-if="showPgr" class="pager"></div>
+	<span style="font-weight:bold;">{{infoMsg}}</span>
+	<div ng-if="detailsFetched" align="center">
+		<input type="checkbox" name="" ng-model="meaning_flg" ng-change="helpEnable()" id="meaning_cbx" />Show Meanings | 
+		<input type="checkbox" name="" ng-model="sentence_flg" ng-change="helpEnable()" id="sentence_cbx" />Show Example Sentences<br/>
+		<ul>
+			<li ng-repeat="word in wordsList">
+				<ul>
+					<li>
+						<span class="word" ng-click="speak()" title="click to pronounce">{{word.word}}</span>
+					</li>
+					<li ng-if="showMeaning">
+						<span>{{word.meaning}}</span>
+					</li>
+					<li ng-if="showSentence">
+						<span>{{word.sentence}}</span>
+					</li>
+				</ul>
+				<br/>
+			</li>
+			
+		</ul>
+		
+	</div>
+</div>

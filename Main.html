@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles/style.css"/>
+	<link rel="stylesheet" href="styles/jquery-ui.min.css"/>
+	<link rel="stylesheet" href="styles/bootstrap.min.css"/>
+	<script src="lib/ResponsiveVoice.js"></script>
+	<script src="lib/GoogleApi.js"></script>
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-route.min.js"></script>
+	<script src="lib/angular-resource.min.js"></script>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/jquery-ui.js"></script>
+	<script type="text/javascript" src="lib/accessdb.js"></script>
+	<script src="lib/require.min.js"></script>
+	<script src="lib/bootPag.min.js"></script>
+	<script>
+			(function(){
+				require(['js/main'], function(){
+				});
+			}());
+		</script>
+</head>
+<body>
+	<div class="headerPanel" ng-include="'templates/header.html'"></div>
+	<div  ng-if="showMenu" class="menuPanel" ng-include="'templates/menuTemplate.html'" ng-controller="LogoutController"></div>
+	<br/>
+	<hr ng-if="showMenu" />
+	<div class="mainDiv" ng-view class="mainDiv"></div>
+	<br/>
+	<div class="footerPanel" ng-include="'templates/footer.html'"></div>
+	<div id="audio"></div><!-- for resposive voice -->
+</body>
+</html>

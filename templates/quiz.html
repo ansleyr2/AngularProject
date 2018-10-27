@@ -1,0 +1,20 @@
+<div align="center">
+	<form method="POST" name="myquiz">
+		<font face="Arial"><big><big>Quiz</big></big></font></p>
+		<div ng-repeat="quizQuestion in questionList">
+			<div class="qheader">
+				{{quizQuestion.word}}
+			</div>
+			<div class="qselections">
+				<input type="radio" value="a" name="question1">a) {{quizQuestion.choice1}}.<br>
+				<input type="radio" value="b" name="question1">b) {{quizQuestion.choice2}}.<br>
+				<input type="radio" value="c" name="question1">c) {{quizQuestion.choice3}}<br>
+				<input type="radio" value="d" name="question1">d) {{quizQuestion.choice4}}.<br>
+			</div>
+		</div>
+	</form>
+	<div align="center">
+		<input type="button" value="Grade Me!" name="B1" onClick="gradeit()" /> 
+		<input type="button" value="Reset" name="B2" onClick="document.myquiz.reset()" />
+	</div>
+</div>
